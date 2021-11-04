@@ -1,8 +1,12 @@
 <h2 class="subtitle is-4">Task List</h2>
-<div *ngIf="numberTasks > 0" class="notification is-warning">
-  <p>Number of tasks: {{ numberTasks }}</p>
-</div>
-
-<div *ngIf="numberTasks === 0" class="notification is-success">
-  <p>There are no tasks to perform</p>
+<div
+  class="notification"
+  [ngClass]="{
+    'is-success': numberTasks < 1,
+    'is-warning': numberTasks > 0,
+    'is-danger': numberTasks > 5
+  }"
+>
+  <p *ngIf="numberTasks">Number of tasks: {{ numberTasks }}</p>
+  <p *ngIf="!numberTasks">There are no tasks to perform.</p>
 </div>

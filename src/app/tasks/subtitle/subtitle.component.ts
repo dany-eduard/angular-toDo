@@ -10,6 +10,10 @@ export class SubtitleComponent {
   constructor(private tasksServices: TasksService) {}
 
   get numberTasks() {
-    return this.tasksServices.tasks.length;
+    let numberT = 0;
+    this.tasksServices.tasks.forEach((t) => {
+      if (!t.completed) numberT++;
+    });
+    return numberT;
   }
 }
