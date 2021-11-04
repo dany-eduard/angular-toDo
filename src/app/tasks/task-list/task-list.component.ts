@@ -16,4 +16,8 @@ export class TaskListComponent {
   detele(id: number) {
     this.tasksServices.removeTask(id);
   }
+
+  completeTask(id: number) {
+    this.tasksServices.completeTask(id);
+  }
 }

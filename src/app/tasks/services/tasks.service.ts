@@ -24,4 +24,9 @@ export default class TasksService {
   public removeTask(id: number) {
     this.tasks = this.tasks.filter((t) => t.id !== id);
   }
+
+  public completeTask(id: number) {
+    const t = this.tasks.find((t) => t.id === id);
+    if (t) t.completed = true;
+  }
 }
