@@ -14,7 +14,12 @@
       <td *ngIf="item.completed; else noCompleted">Completed</td>
       <ng-template #noCompleted><td>No completed</td></ng-template>
       <td>
-        <button style="height: 40%" class="button is-primary">
+        <button
+          [disabled]="item.completed"
+          (click)="completeTask(item.id)"
+          style="height: 40%"
+          class="button is-primary"
+        >
           <i class="fas fa-check-circle"></i>
         </button>
         <button
